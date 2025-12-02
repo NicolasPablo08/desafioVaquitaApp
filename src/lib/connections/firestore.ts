@@ -8,6 +8,7 @@ import admin from "firebase-admin";
 //luego para utilizar la variable de entorno debemos covertirla nuevamente en JSON con
 // JSON.parse()
 const serviceAccount = JSON.parse(process.env.CONNECTION_FIRESTORE);
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
 
 //vercel y firebase recomiendan inicializar la app de firebase de esta manera
 //para que se ejecute solo una vez y no de error por inicializaciones multiples
