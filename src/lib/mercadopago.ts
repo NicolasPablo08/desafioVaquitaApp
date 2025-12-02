@@ -4,7 +4,7 @@ import { MercadoPagoConfig, Payment, Preference } from "mercadopago";
 // Step 2: Initialize the client object
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_TOKEN as string,
-  options: { timeout: 5000, idempotencyKey: "abc" },
+  // options: { timeout: 5000, idempotencyKey: "abc" },
 });
 
 const BASE_URL = process.env.VERCEL_URL || "apx.school";
@@ -25,9 +25,7 @@ type CreatePrefOptions = {
 // de los detalles de mercado pago
 // esto nos permitirá hacer cambios dentro de esta librería
 // sin tener que modificar el resto del sistema
-export async function createSingleProductPreference(
-  options: CreatePrefOptions
-) {
+export async function createSingleProductPreference(options: CreatePrefOptions) {
   // Todas las opciones en
   // https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post
 

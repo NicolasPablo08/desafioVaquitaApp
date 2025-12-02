@@ -18,42 +18,38 @@ export default async function Home() {
         <div className={styles.goal}>
           <img
             className={styles.goalImg}
-            src="https://www.shutterstock.com/image-photo/new-playstation-5-slim-model-260nw-2377124501.jpg"
+            src="https://images.unsplash.com/photo-1571335746824-742511d49bce?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
           <div className={styles.goalTexts}>
             <h2 className={styles.goalTitle}>{campaign.title}</h2>
             <div className={styles.goalDonations}>
-              <span className={styles.totalDonations}>${totalDonations.toLocaleString()}</span>{" "}/{" "}
-              ${donationsGoal.toLocaleString()}
+              <span className={styles.totalDonations}>${totalDonations.toLocaleString()}</span> / $
+              {donationsGoal.toLocaleString()}
             </div>
             <div
               className={styles.goalProgressBar}
               style={{ "--progress": progressPercent } as any}
             ></div>
-            <p className={styles.goalDesc} dangerouslySetInnerHTML={{ __html: campaign.description.replace(/\n/g, "<br>") }} />
+            <p
+              className={styles.goalDesc}
+              dangerouslySetInnerHTML={{ __html: campaign.description.replace(/\n/g, "<br>") }}
+            />
           </div>
         </div>
         <div className={styles.donations}>
           {confirmed.map((i) => (
-            <div
-              key={i.id}
-              className={styles.donation}
-            >
-              <div className={styles.donationAmount}>
-                ${i.amount.toLocaleString()}
-              </div>
+            <div key={i.id} className={styles.donation}>
+              <div className={styles.donationAmount}>${i.amount.toLocaleString()}</div>
               <div className={styles.donationText}>
-                <span>
-                  {i.message}
-                </span>
-                <span>
-                  {i.from}
-                </span>
+                <span>{i.message}</span>
+                <span>{i.from}</span>
               </div>
             </div>
           ))}
         </div>
-        <Link href='/donate' className={styles.donateButton}>Sumate a la causa</Link>
+        <Link href="/donate" className={styles.donateButton}>
+          Sumate a la causa
+        </Link>
       </div>
     </div>
   );
